@@ -5,6 +5,7 @@ body
 	color: #555;
 	font: normal 10pt Arial,Helvetica,sans-serif;
 	background: #EFEFEF;
+	/*width:2000px;*/
 }
 
 
@@ -15,6 +16,11 @@ body
 .hiddenCB div label{color: white;}
 .nav {color:white;}
 .nav a{color:#bbe1fa;}
+
+input{background-color: grey;color:white;}
+textarea{background-color:grey;color: white;}
+
+.breadcrumbs{background-color: black; color:white;}
 
 div.parent
 {
@@ -106,19 +112,22 @@ display: block;
 
 #page
 {
-	margin-top: 5px;
-	margin-bottom: 5px;
-	background: white;
-	border: 1px solid #C9E0ED;
+	/*margin-top: 5px;*/
+	/*margin-bottom: 5px;*/
+	/*background: white;*/
+	background-color:black;
+	/*border: 1px solid #C9E0ED;*/
+	/*width:500px;*/
 }
 
 #header
 {
 	margin: 0;
 	padding: 0;
-	background-image: url( 'Ava.Notetub.com-dancing-script-logo-160px.png' );
+	/*background-image: url( 'Ava.Notetub.com-dancing-script-logo-160px.png' );*/
 	background-repeat: no-repeat;
 	height: 125px;
+	background-color:black;
 
 	/*margin: 0;*/
 	/*padding: 0;*/
