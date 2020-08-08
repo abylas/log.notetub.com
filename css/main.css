@@ -12,7 +12,7 @@ body
 /*Css for making site to be Dark Mode.*/
 .container {background-color: black;}
 .row label {color: white;}
-.name p{color: white;}
+.name p{color: white;font-size:200%}
 .hiddenCB div label{color: white;}
 .nav {color:white;}
 .nav a{color:#bbe1fa;}
