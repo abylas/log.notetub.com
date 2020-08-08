@@ -32,11 +32,11 @@ class NotesController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('create', 'tag','update'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete'),
+				'actions'=>array('admin','tag','delete'),
 				'users'=>array('admin'),
 			),
 			array('deny',  // deny all users
@@ -96,6 +96,41 @@ class NotesController extends Controller
 
 		));
 	}
+
+    /**
+     * Show public notes, created by all people.
+     *  Adding this tag action so that only public notes and pages are retrieved for index view...
+    since index view wil be viewed by everyone....
+    and profile is only for ourselves, so public and private.
+     */
+    public function actionTag()
+    {
+
+        $criteria=new CDbCriteria(array(
+//            'condition'=>'status='.Notes::STATUS_PUBLIC,
+            'order'=>'update_time DESC',
+            //'with'=>'bits',
+        ));
+
+        if(isset($_GET['tag']))
+            $criteria->addSearchCondition('tags',$_GET['tag']);
+        //$criteria->condition = "owner_id=:userID";
+        //$criteria->params =  array(':userID'=>Yii::app()->user->id);
+
+        $dataProvider = new CActiveDataProvider('Notes',
+            array(
+                "pagination" => array(
+                    "pageSize" => 15
+                ),
+                'criteria'=>$criteria,
+            ));
+
+        $this->render('index',array(
+            "dataProvider" => $dataProvider,
+            'myPage'=>true,  // used to say whether this is my page, or someone else's
+
+        ));
+    }
 
 	/**
 	 * Updates a particular model.
