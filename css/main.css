@@ -16,6 +16,9 @@ body
 .nav {color:white;}
 .nav a{color:#bbe1fa;}
 
+input{background-color: grey;color:white;}
+textarea{background-color:grey;color: white;}
+
 div.parent
 {
 	position: absolute;
