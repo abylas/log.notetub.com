@@ -7,7 +7,7 @@ class UserPhoto extends CPortlet
 	{
 		$profile = Profile::model()->find('user_id=:userID', array(':userID'=>Yii::app()->user->id));
 		$this->title=CHtml::link($profile->firstname .' '.$profile->lastname,   //Yii::app()->user->name,
-								Yii::app()->createUrl('note/profile'));
+								Yii::app()->createUrl('notes/profile'));
 		parent::init();
 	}
 

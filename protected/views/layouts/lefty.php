@@ -12,7 +12,7 @@
             ));
             $this->endWidget();
             ?>
-<!--				--><?php //if(!Yii::app()->user->isGuest) $this->widget('UserPhoto'); ?>
+				<?php if(!Yii::app()->user->isGuest) $this->widget('UserPhoto'); ?>
 				<?php // if(!Yii::app()->user->isGuest) $this->widget('UserFriends'); ?>
 		 		
 		 		<?php  // if(!Yii::app()->user->isGuest) $this->widget('SearchBlock'); ?>
