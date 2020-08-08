@@ -19,6 +19,8 @@ body
 input{background-color: grey;color:white;}
 textarea{background-color:grey;color: white;}
 
+.breadcrumbs{background-color: black; color:white;}
+
 div.parent
 {
 	position: absolute;
