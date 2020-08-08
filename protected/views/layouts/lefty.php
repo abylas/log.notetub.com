@@ -12,16 +12,16 @@
             ));
             $this->endWidget();
             ?>
-<!--				--><?php //if(!Yii::app()->user->isGuest) $this->widget('UserPhoto'); ?>
+				<?php if(!Yii::app()->user->isGuest) $this->widget('UserPhoto'); ?>
 				<?php // if(!Yii::app()->user->isGuest) $this->widget('UserFriends'); ?>
 		 		
 		 		<?php  // if(!Yii::app()->user->isGuest) $this->widget('SearchBlock'); ?>
 				 <?php  // if(!Yii::app()->user->isGuest) $this->widget('OwnSearch'); ?>
 		 		 <?php  //if(!Yii::app()->user->isGuest) $this->widget('UserSearch'); ?>
 				 <?php  //if(!Yii::app()->user->isGuest) $this->widget('UserReview'); ?>
-			 <?php  // if(!Yii::app()->user->isGuest) $this->widget('TagCloud', array(
-        			// 'maxTags'=>Yii::app()->params['tagCloudCount'],
-    		// ));  ?> 
+			 <?php   if(!Yii::app()->user->isGuest) $this->widget('TagCloud', array(
+        			 'maxTags'=>Yii::app()->params['tagCloudCount'],
+    		 ));  ?>
 		</div><!-- sidebar -->
 	</div>
 	<div id="content" class="span-16">
