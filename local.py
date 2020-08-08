@@ -29,6 +29,7 @@ import sys
 curr_branch_name = sys.argv[1]
 release_branch_version_number = sys.argv[2]
 tag_message = sys.argv[3]
+new_feature_branch = sys.argv[4]
 # print 'Params=', param_1, param_2, param_3
 
 
@@ -118,6 +119,11 @@ def sync_master():
         print("Pushed all branches successfully")
         exit_on_failure_command("git push ava-github --tags")
         print("Pushed all Tags successfully")
+
+        exit_on_failure_command("git checkout develop")
+        print("Switched to Develop branch")
+        exit_on_failure_command("git checkout -b " + new_feature_branch + " develop")
+        print("Created a release Branch from Develop successfully")
 
 
         # for module in modules:

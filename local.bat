@@ -1,6 +1,6 @@
-::Usage: local.bat feature-name tag-version-number TAG-DESCRIPTION
+::Usage: local.bat current-feature-branch-name tag-version-number TAG-DESCRIPTION New-feature-branch-name
 
-:: Example : local.bat f91401 v-9.14.0.1 "Tag for feature branch version 9.14.0.1"
+:: Example : local.bat f91401 v-9.14.0.1 "Tag for feature branch version 9.14.0.1" f91501 
 
 :: feature-name - name of this feature branch - in format - "fxxxxx" - example, f91301, means feature branch 9.13.0.1
 :: tag-version-number - in format  "v-9.13.0.1" , for the tags
