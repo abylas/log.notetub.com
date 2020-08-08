@@ -10,6 +10,9 @@ body
 	/*width:2000px;*/
 }
 
+/*Main menu float right*/
+
+#mainmenu ul li{float:right;}
 
 /*Css for making site to be Dark Mode.*/
 .container {background-color: black;}
