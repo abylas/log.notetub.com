@@ -1,5 +1,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<?php
+Yii::app()->clientScript->registerScriptFile(
+    Yii::app()->assetManager->publish(
+        Yii::getPathOfAlias('application.components').'/js/jquery.masonry.min.js'
+    ),
+    CClientScript::POS_END
+);
+?>
+
+
 <?php Yii::app()->clientScript->registerCoreScript('jquery'); ?>
 <?php header("Access-Control-Allow-Origin: *"); ?>
 
@@ -239,10 +249,199 @@ echo "<br/>\n";
     <h1>Notes Tagged with <i><?php echo CHtml::encode($_GET['tag']); ?></i></h1>
 <?php endif; ?>
 
-<?php $this->widget('zii.widgets.CListView', array(
-    'dataProvider'=>$dataProvider,
-    'itemView'=>'_view',
-    'template'=>"{items} \n{pager}",
-)); ?>
+
+<?php //$this->widget('zii.widgets.CListView', array(
+//    'dataProvider'=>$dataProvider,
+//    'itemView'=>'_view',
+//    'template'=>"{items} \n{pager}",
+//)); ?>
+<!---->
 
 
+<div id="notes">
+<!--    --><?php ////$strangerId = $provider->getData()->owner_id;
+//    if($myPage)
+//    { // to only check this if visiting someone else's profile.
+//
+//// if($strangerId===Yii::app()->user->id) // decide whether it's user or some one else's page.
+//// depending on that we will show add friend versus nothing.
+//        { // if already a friend
+//// echo "Already a Friend";
+//        }
+//    }
+//    else{
+//        /**	echo $strangerId;
+//        $exists = Friends::model()->find('user_id=:userID AND friend_id=:fId',
+//        array(':userID'=>Yii::app()->user->id,
+//        ':fId' =>$strangerId, ));
+//        if($exists)
+//        {
+//        echo "Made into friends once";
+//        }
+//        else { // they are not yet friends
+//        echo CHtml::link("Add Friend",
+//        Yii::app()->createUrl('note/new', array("id"=>$strangerId)));
+//        }
+//         */
+//
+//    }
+//    ?>
+
+
+    <?php foreach($dataProvider->getData() as $note): ?>
+        <div class="note">
+            <?php
+//            $model = Profilepic::model()->find('user_id=:userID', array(':userID'=>$note->owner_id));
+
+//            $user= User::model()->find('id=:uID', array(":uID" =>$note->owner_id));
+
+            // used to reflect whether there is an image related to this note or not.
+            $bitImageExists= false;
+            // first bit image id in a note...this will be used to show the image on front page.
+            $bitImageId;
+
+            $imgPath;
+
+//            foreach($note->bits as $i=>$bit){
+//                // now check if any of these bits id exist in image table...if it does
+//
+//                $bitId = $bit->id;
+//                $image = Image::model()->find('bit_id=:bitId', array(":bitId"=>$bitId));
+//
+//                $keepLooking = true;
+//
+//                if($image !== null && $keepLooking == true){
+//                    $bitImageExists = true;
+//
+//                    $bitImageId = $bitId;
+//
+//                    $imgPath = Yii::app()->image->getURL($image->id, "small");
+//                }
+//                // otherwise we have found the needed information...let's get out.
+//            }
+
+            // now use this id to display a different view with photo in it.
+
+            ?>
+
+
+            <div id="noteProfileSmallPic">
+                <?php
+
+                //        echo CHtml::link($user->username,
+                //								Yii::app()->createUrl('note/page', array("id"=>$user->id)));
+                ?>
+
+                <?php
+                //if($bitImageExists)
+                //{
+                ?>
+                <div class="imgtitle">
+                    <?php  echo $note->name; ?>
+                </div>
+                <?php
+                // use the image path found earlier.
+                //}
+                //else {}
+                ?>
+                <div class="title">
+                    <?php // echo $note->title; ?>
+                </div>
+
+                <div class="numOfBits">
+                    <?php  //echo $note->bitCount; ?>
+                </div>
+
+                <?php
+                // make this yellow for private, and purple for public.
+                // image wise....
+                // image_1 = purple
+                // image_2 = yellow
+                // image_3 = blue
+                // image_4 = green
+
+
+                $post_num =  mt_rand(1,4);// $note->status;
+                // mt_rand(1,4);
+                $imgPath = "images/note_big_mobile_".$post_num.".png";
+                //}
+                ?>
+
+                <a href="	<?php  echo CHtml::encode($note->url);?>
+										"
+                   title="<?php echo $note->name;?> ">
+
+                    <?php echo CHtml::tag("img", array(
+                        "src"=>$imgPath,
+                    ));
+
+                    ?> </a>
+            </div>
+            <br>
+            <div class="status">
+                <?php
+
+                $show= "";
+
+                //		echo CHtml::encode(Lookup::item('NoteStatus',$note->status) . $show); ?>
+            </div>
+
+            <div id="postTime">
+                <?php
+
+                /*
+                echo date('M j',$note->create_time);
+                echo " at ";
+                echo date('H:i a',$note->create_time);
+
+                echo "   &nbsp; &nbsp;&nbsp;&nbsp; ";
+                */
+
+                ?>
+            </div>
+            <!-- end of post time -->
+
+            <div id="deleteNote">
+
+
+
+                <?php
+
+                /*
+
+                echo CHtml::link("   Delete", $note->deleteurl,
+                array('confirm' => 'Are you sure you want to delete this note?'));
+                */
+
+                ?>
+
+
+            </div>
+
+
+            <?php
+            /*
+             $this->renderPartial('_index',array(
+             'note'=>$note,
+             'bits'=>$note->bits,
+             ));
+
+             */
+            ?>
+
+
+        </div>
+    <?php endforeach; ?>
+
+</div>
+
+
+<ul>
+    <?php $this->widget('ext.yiinfinite-scroll.YiinfiniteScroller', array(
+        'contentSelector' => '#notes',
+        'itemSelector' => 'div.note',
+        'loadingText' => 'Loading...',
+        'donetext' => 'No more notes to show....',
+        'pages' => $dataProvider->pagination,
+    )); ?>
+</ul>

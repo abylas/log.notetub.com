@@ -51,6 +51,16 @@
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>
 
+    <div class = "row buttons">
+        <?php
+
+        echo CHtml::encode(Yii::app()->createUrl('profilepic/create'));
+
+        ?>
+
+    </div>
+
+
 <?php $this->endWidget(); ?>
 
 </div><!-- form -->

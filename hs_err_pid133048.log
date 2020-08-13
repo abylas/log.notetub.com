@@ -1,0 +1,126 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (malloc) failed to allocate 480104 bytes for AllocateHeap
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   The process is running with CompressedOops enabled, and the Java Heap may be blocking the growth of the native heap
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+#   JVM is running with Zero Based Compressed Oops mode in which the Java heap is
+#     placed in the first 32GB address space. The Java Heap base address is the
+#     maximum limit for the native heap growth. Please use -XX:HeapBaseMinAddress
+#     to set the Java Heap base and to place the Java Heap above 32GB virtual address.
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (memory/allocation.inline.hpp:61), pid=133048, tid=0x000000000002c3d4
+#
+# JRE version:  (8.0_202-b44) (build )
+# Java VM: OpenJDK 64-Bit Server VM (25.202-b44 mixed mode windows-amd64 compressed oops)
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00000000022d2800):  JavaThread "Unknown thread" [_thread_in_vm, id=181204, stack(0x00000000021d0000,0x00000000022d0000)]
+
+Stack: [0x00000000021d0000,0x00000000022d0000]
+[error occurred during error reporting (printing stack bounds), id 0xc0000005]
+
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+
+Other Threads:
+
+=>0x00000000022d2800 (exited) JavaThread "Unknown thread" [_thread_in_vm, id=181204, stack(0x00000000021d0000,0x00000000022d0000)]
+
+VM state:not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+heap address: 0x0000000681c00000, size: 5092 MB, Compressed Oops mode: Zero based, Oop shift amount: 3
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 3
+Compressed class space size: 1073741824 Address: 0x00000007c0000000
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+Events (0 events):
+No events
+
+
+Dynamic libraries:
+0x00007ff79d970000 - 0x00007ff79d9a1000 	C:\Users\sendt\AppData\Local\JetBrains\PhpStorm 2019.1.1\jre64\bin\java.exe
+0x00007ffed6a70000 - 0x00007ffed6c64000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x00007ffed6240000 - 0x00007ffed62fd000 	C:\WINDOWS\System32\KERNEL32.DLL
+0x00007ffed44a0000 - 0x00007ffed4767000 	C:\WINDOWS\System32\KERNELBASE.dll
+0x00007ffed6430000 - 0x00007ffed64da000 	C:\WINDOWS\System32\ADVAPI32.dll
+0x00007ffed6390000 - 0x00007ffed642e000 	C:\WINDOWS\System32\msvcrt.dll
+0x00007ffed6990000 - 0x00007ffed6a2b000 	C:\WINDOWS\System32\sechost.dll
+0x00007ffed5890000 - 0x00007ffed59b3000 	C:\WINDOWS\System32\RPCRT4.dll
+0x00007ffed5640000 - 0x00007ffed57e0000 	C:\WINDOWS\System32\USER32.dll
+0x00007ffed4260000 - 0x00007ffed4282000 	C:\WINDOWS\System32\win32u.dll
+0x00007ffed61e0000 - 0x00007ffed620a000 	C:\WINDOWS\System32\GDI32.dll
+0x00007ffed47a0000 - 0x00007ffed48aa000 	C:\WINDOWS\System32\gdi32full.dll
+0x00007ffed41c0000 - 0x00007ffed425d000 	C:\WINDOWS\System32\msvcp_win.dll
+0x00007ffed49e0000 - 0x00007ffed4ae0000 	C:\WINDOWS\System32\ucrtbase.dll
+0x00007ffec25e0000 - 0x00007ffec287a000 	C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.1_none_b555e41d4684ddec\COMCTL32.dll
+0x00007ffed6210000 - 0x00007ffed6240000 	C:\WINDOWS\System32\IMM32.DLL
+0x000000005b8f0000 - 0x000000005b9c2000 	C:\Users\sendt\AppData\Local\JetBrains\PhpStorm 2019.1.1\jre64\bin\msvcr100.dll
+0x000000005b9d0000 - 0x000000005c216000 	C:\Users\sendt\AppData\Local\JetBrains\PhpStorm 2019.1.1\jre64\bin\server\jvm.dll
+0x00007ffed4c70000 - 0x00007ffed4c78000 	C:\WINDOWS\System32\PSAPI.DLL
+0x00007ffecbc20000 - 0x00007ffecbc2a000 	C:\WINDOWS\SYSTEM32\VERSION.dll
+0x00007ffec0870000 - 0x00007ffec0897000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x00007ffebdcf0000 - 0x00007ffebdcf9000 	C:\WINDOWS\SYSTEM32\WSOCK32.dll
+0x00007ffed6300000 - 0x00007ffed636b000 	C:\WINDOWS\System32\WS2_32.dll
+0x00007ffed1030000 - 0x00007ffed103f000 	C:\Users\sendt\AppData\Local\JetBrains\PhpStorm 2019.1.1\jre64\bin\verify.dll
+0x00007ffece8b0000 - 0x00007ffece8d9000 	C:\Users\sendt\AppData\Local\JetBrains\PhpStorm 2019.1.1\jre64\bin\java.dll
+0x00007ffecf250000 - 0x00007ffecf266000 	C:\Users\sendt\AppData\Local\JetBrains\PhpStorm 2019.1.1\jre64\bin\zip.dll
+
+VM Arguments:
+java_command: org.jetbrains.git4idea.http.GitAskPassApp Username for 'https://github.com': 
+java_class_path (initial): C:/Users/sendt/AppData/Local/JetBrains/PhpStorm 2019.1.1/plugins/git4idea/lib/git4idea-rt.jar;C:/Users/sendt/AppData/Local/JetBrains/PhpStorm 2019.1.1/lib/xmlrpc-2.0.1.jar;C:/Users/sendt/AppData/Local/JetBrains/PhpStorm 2019.1.1/lib/commons-codec-1.10.jar;C:/Users/sendt/AppData/Local/JetBrains/PhpStorm 2019.1.1/lib/util.jar
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=C:\Program Files\Java\jdk1.8.0_181\
+PATH=C:/Program Files/Git/mingw64/libexec/git-core;C:/Program Files/Git/mingw64/libexec/git-core;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\sendt\bin;C:\Program Files\AdoptOpenJDK\jre-11.0.5.10-hotspot\bin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files\Microsoft MPI\Bin\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files\PuTTY\;c:\jfrog;C:\Program Files\Java\jdk1.8.0_181\bin;C:\1fall2018\apache-maven-3.5.4-bin\apache-maven-3.5.4\bin;C:\Program Files\dotnet\;C:\xampp\php;C:\ProgramData\ComposerSetup\bin;C:\Program Files\Git\cmd;C:\Program Files\TortoiseGit\bin;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\sendt\AppData\Roaming\Composer\vendor\bin;C:\Program Files\JetBrains\PhpStorm 2019.1.1\bin;C:\Users\sendt\AppData\Local\Microsoft\WindowsApps;C:\Users\sendt\AppData\Local\GitHubDesktop\bin;C:\Program Files\JetBrains\PyCharm Professional Edition with Anaconda plugin 2019.3.1\bin;;C:\Users\sendt\AppData\Local\JetBrains\PhpStorm 2019.1.1\bin;;C:\Users\sendt\AppData\Local\Microsoft\WindowsApps;;C:\Program Files\JetBrains\PyCharm Community Edition 2020.1.2\bin;
+USERNAME=sendt
+DISPLAY=:0.0
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 142 Stepping 9, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 10.0 , 64 bit Build 19041 (10.0.19041.292)
+
+CPU:total 4 (initial active 4) (2 cores per cpu, 2 threads per core) family 6 model 142 stepping 9, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, clmul, erms, 3dnowpref, lzcnt, ht, tsc, tscinvbit, bmi1, bmi2, adx
+
+Memory: 4k page, physical 20851848k(9193708k free), swap 21671048k(4136k free)
+
+vm_info: OpenJDK 64-Bit Server VM (25.202-b44) for windows-amd64 JRE (1.8.0_202-release-1483-b44), built on Mar 29 2019 17:15:10 by "builduser" with MS VC++ 10.0 (VS2010)
+
+time: Wed Jul 29 05:10:06 2020
+timezone: Eastern Daylight Time
+elapsed time: 0 seconds (0d 0h 0m 0s)
+
