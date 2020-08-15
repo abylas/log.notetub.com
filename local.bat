@@ -35,5 +35,5 @@ ECHO ============================
 
 
 
-"C:\Program Files (x86)\Microsoft Visual Studio\Shared\Anaconda3_64\python.exe" local.py %1 %2 %3
+"C:\Program Files (x86)\Microsoft Visual Studio\Shared\Anaconda3_64\python.exe" local.py %1 %2 %3 %4
 PAUSE

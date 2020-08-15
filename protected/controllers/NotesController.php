@@ -75,6 +75,9 @@ class NotesController extends Controller
 		}
 
 
+        $notespicmodel = Notespic::model()->find('notes_id=:userID', array(':userID'=>$model->id));
+
+
         $criteria=new CDbCriteria(array(
             'order'=>'update_time DESC',
 //            'with'=>'commentCount',
@@ -93,7 +96,7 @@ class NotesController extends Controller
 		$this->render('create',array(
 			'model'=>$model,
             'dataProvider'=>$dataProvider,
-
+//            'notespicmodel'=>$notespicmodel,
 		));
 	}
 
