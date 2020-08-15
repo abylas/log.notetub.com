@@ -27,9 +27,9 @@ import sys
 # main
 # get the feature branch name
 curr_branch_name = sys.argv[1]
-release_branch_version_number = sys.argv[3]
-tag_message = sys.argv[4]
-new_feature_branch = sys.argv[2]
+release_branch_version_number = sys.argv[2]
+tag_message = sys.argv[3]
+new_feature_branch = sys.argv[4]
 # print 'Params=', param_1, param_2, param_3
 
 
