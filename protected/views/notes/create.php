@@ -259,6 +259,11 @@ echo "<br/>\n";
 
 
 <div id="notes">
+    <br>
+    <br>
+
+    ———————————————————————————————————————-
+
 <!--    --><?php ////$strangerId = $provider->getData()->owner_id;
 //    if($myPage)
 //    { // to only check this if visiting someone else's profile.
@@ -298,9 +303,9 @@ echo "<br/>\n";
             // used to reflect whether there is an image related to this note or not.
             $bitImageExists= false;
             // first bit image id in a note...this will be used to show the image on front page.
-            $bitImageId;
-
-            $imgPath;
+//            $bitImageId;
+//
+//            $imgPath;
 
 //            foreach($note->bits as $i=>$bit){
 //                // now check if any of these bits id exist in image table...if it does
@@ -367,16 +372,17 @@ echo "<br/>\n";
                 //}
                 ?>
 
-                <a href="	<?php  echo CHtml::encode($note->url);?>
-										"
-                   title="<?php echo $note->name;?> ">
+<!--                <a href="	--><?php // echo CHtml::encode($note->url);?>
+<!--										"-->
+<!--                   title="--><?php //echo $note->name;?><!-- ">-->
+<!---->
+<!--                    --><?php //echo CHtml::tag("img", array(
+//                        "src"=>$imgPath,
+//                    ));
+//
+//                    ?><!-- </a>-->
+            </div> <!-- noteprofilesmallpic end -->
 
-                    <?php echo CHtml::tag("img", array(
-                        "src"=>$imgPath,
-                    ));
-
-                    ?> </a>
-            </div>
             <br>
             <div class="status">
                 <?php
@@ -389,16 +395,42 @@ echo "<br/>\n";
             <div id="postTime">
                 <?php
 
-                /*
-                echo date('M j',$note->create_time);
-                echo " at ";
-                echo date('H:i a',$note->create_time);
 
-                echo "   &nbsp; &nbsp;&nbsp;&nbsp; ";
-                */
+//                echo date('M j',$note->create_time);
+//                echo " at ";
+//                echo date('H:i a',$note->create_time);
+//
+//                echo "   &nbsp; &nbsp;&nbsp;&nbsp; ";
+
+                echo "<br/>\n";
+                echo "<br/>\n";
+
+                echo date("F jS, Y,  H:m:s", strtotime($note->create_time));;
+
+                echo "<br/>\n";
+                echo "<br/>\n";
+
+?>
+
+                <b>Tags:</b>
+         <?php echo implode(', ', $note->tagLinks);
+
+        echo "<br/>\n";
+
+        ?>
+        <br/>
+
+
+        <?php echo CHtml::link('Permalink', $note->url);
+
+                echo "---------------------------------";
 
                 ?>
-            </div>
+            </div>  <!-- end of postTime div -->
+            <br>
+            <br>
+
+
             <!-- end of post time -->
 
             <div id="deleteNote">
