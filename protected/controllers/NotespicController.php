@@ -1,6 +1,6 @@
 <?php
 
-class ProfilepicController extends Controller
+class NotespicController extends Controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -61,16 +61,16 @@ class ProfilepicController extends Controller
 	 */
 	public function actionCreate()
 	{
-		$model=new Profilepic;
+		$model=new Notespic;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Profilepic']))
+		if(isset($_POST['Notespic']))
 		{
-			$model->attributes=$_POST['Profilepic'];
+			$model->attributes=$_POST['Notespic'];
 			if($model->save())
-				$this->redirect(array("notes/create"));
+				$this->redirect(array("notespic/create"));
 		}
 //	 else{
 //		 	// some issue...show error
@@ -95,11 +95,11 @@ class ProfilepicController extends Controller
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Profilepic']))
+		if(isset($_POST['Notespic']))
 		{
-			$model->attributes=$_POST['Profilepic'];
+			$model->attributes=$_POST['Notespic'];
 			if($model->save())
-				$this->redirect(array("notes/create"));
+				$this->redirect(array("notespic/create"));
 		}
 
 		$this->render('update',array(
@@ -132,7 +132,7 @@ class ProfilepicController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Profilepic');
+		$dataProvider=new CActiveDataProvider('Notespic');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
@@ -143,10 +143,10 @@ class ProfilepicController extends Controller
 	 */
 	public function actionAdmin()
 	{
-		$model=new Profilepic('search');
+		$model=new Notespic('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['Profilepic']))
-			$model->attributes=$_GET['Profilepic'];
+		if(isset($_GET['Notespic']))
+			$model->attributes=$_GET['Notespic'];
 
 		$this->render('admin',array(
 			'model'=>$model,
@@ -169,7 +169,7 @@ class ProfilepicController extends Controller
 	 */
 	public function loadModel($id)
 	{
-		$model=Profilepic::model()->findByPk((int)$id);
+		$model=Notespic::model()->findByPk((int)$id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
@@ -181,7 +181,7 @@ class ProfilepicController extends Controller
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='profilepic-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='notespic-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();

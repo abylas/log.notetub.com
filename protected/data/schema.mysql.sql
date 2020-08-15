@@ -144,6 +144,21 @@ CREATE TABLE `tbl_profiles_fields` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 
+CREATE TABLE `tbl_notespic` (
+	`id` serial NOT NULL,
+	`name` varchar(255) NOT NULL,
+	`extension` varchar(255) NOT NULL,
+	`path` varchar(255) NULL DEFAULT NULL,
+	`filename` varchar(255) NOT NULL,
+	`byteSize` int(10) unsigned NOT NULL,
+	`mimeType` varchar(255) NOT NULL,
+	`created` INTEGER NULL DEFAULT NULL,
+	`notes_id` int(11) NOT NULL);
+ALTER TABLE tbl_notespic ADD CONSTRAINT FK_pic_notes  FOREIGN KEY (notes_id)
+		REFERENCES tbl_notes (id) ON DELETE CASCADE ON UPDATE RESTRICT;
+
+
+
 CREATE TABLE `tbl_profilepic` (
 	`id` serial NOT NULL,
 	`name` varchar(255) NOT NULL,
@@ -156,6 +171,8 @@ CREATE TABLE `tbl_profilepic` (
 	`user_id` int(11) NOT NULL);
 ALTER TABLE tbl_profilepic ADD CONSTRAINT FK_pic_user  FOREIGN KEY (user_id)
 		REFERENCES tbl_users (id) ON DELETE CASCADE ON UPDATE RESTRICT;
+
+
 
 
 INSERT INTO tbl_tag (name) VALUES ('yii');

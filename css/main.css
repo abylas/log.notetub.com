@@ -10,6 +10,16 @@ body
 	/*width:2000px;*/
 }
 
+
+/*Fix profile pic look, remove background etc.*/
+
+.portlet-content {
+	font-size: 0.9em;
+	margin: 0 0 15px 0;
+	padding: 5px 8px;
+	background: #FFFFFF;
+}
+
 /*Main menu float right*/
 
 #mainmenu ul li{float:right;}
@@ -21,11 +31,86 @@ body
 .hiddenCB div label{color: white;}
 .nav {color:white;}
 .nav a{color:#bbe1fa;}
+#postTime {color: white;}
 
-input{background-color: grey;color:white;}
+.imgtitle {color: white;font-size:200%}
+
+
+input{background-color: grey;color:white border-radius:10px;}
 textarea{background-color:grey;color: white;}
 
 .breadcrumbs{background-color: black; color:white;}
+
+/*Profile pic css*/
+.portlet-content img {
+	display: block;
+	-webkit-box-shadow: 3px 3px 4px #000;
+	-moz-box-shadow: 3px 3px 4px #000;
+	box-shadow: 3px 3px 4px #000;
+	max-width: 100px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+
+/*Smooth corner for notes */
+
+#noteProfileSmallPic img {
+	vertical-align: baseline;
+	background: transparent;
+	max-height: 300px;
+	max-width: 600px;
+	cursor: auto;
+	-webkit-box-shadow: 3px 3px 4px #000;
+	-moz-box-shadow: 3px 3px 4px #000;
+	box-shadow: 3px 3px 4px #000;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+#noteProfileSmallPic:hover {
+	z-index: 30;
+	-webkit-box-shadow: 15px 15px 35px lightgreen;
+	-moz-box-shadow: 15px 15px 35px lightgreen;
+	box-shadow: 15px 15px 35px mediumpurple ;
+	/*rgba(0, 0, 0, 0.5); for light background later on*/
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	background: rebeccapurple;
+}
+
+
+#postTime img {
+	vertical-align: baseline;
+	background: transparent;
+	max-height: 300px;
+	max-width: 600px;
+	cursor: auto;
+	-webkit-box-shadow: 3px 3px 4px #000;
+	-moz-box-shadow: 3px 3px 4px #000;
+	box-shadow: 3px 3px 4px #000;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+#postTime:hover {
+	z-index: 30;
+	-webkit-box-shadow: 15px 15px 35px lightgreen;
+	-moz-box-shadow: 15px 15px 35px lightgreen;
+	box-shadow: 15px 15px 35px mediumpurple ;
+	/*rgba(0, 0, 0, 0.5); for light background later on*/
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	background: rebeccapurple;
+}
+
+
+
 
 div.parent
 {
@@ -129,6 +214,7 @@ display: block;
 {
 	margin: 0;
 	padding: 0;
+	/*background-image: url( 'blueribbon.jpg' );*/
 	/*background-image: url( 'Ava.Notetub.com-dancing-script-logo-160px.png' );*/
 	background-repeat: no-repeat;
 	height: 125px;
@@ -287,12 +373,19 @@ div.search-form
 
 }
 
-.portlet-decoration
-{
+
+.portlet-decoration {
 	padding: 3px 8px;
-	background: #B7D6E7;
-	border-left: 5px solid #6FACCF;
+	background: black;
+	border-left: 5px solid black;
 }
+
+/*.portlet-decoration*/
+/*{*/
+/*	padding: 3px 8px;*/
+/*	background: #B7D6E7;*/
+/*	border-left: 5px solid #6FACCF;*/
+/*}*/
 
 .portlet-title
 {

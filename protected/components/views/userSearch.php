@@ -11,5 +11,5 @@ echo CHtml::tag("img", array(
 ?>
 
 <ul>
-	<li><?php echo CHtml::link('Search',Yii::app()->createUrl('note/review', array("time"=>'3 Days'))); ?></li>
+	<li><?php echo CHtml::link('Search',Yii::app()->createUrl('notes/review', array("time"=>'3 Days'))); ?></li>
 </ul>
