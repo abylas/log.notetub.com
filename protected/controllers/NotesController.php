@@ -75,7 +75,7 @@ class NotesController extends Controller
 		}
 
 
-        $notespicmodel = Notespic::model()->find('notes_id=:userID', array(':userID'=>$model->id));
+//        $notespicmodel = Notespic::model()->find('notes_id=:userID', array(':userID'=>$model->id));
 
 
         $criteria=new CDbCriteria(array(
