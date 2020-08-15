@@ -95,6 +95,12 @@ def sync_master():
         exit_on_failure_command("git push ava-github --tags")
         print("Pushed all Tags successfully")
 
+
+        exit_on_failure_command("git checkout develop")
+        print("Switched to Develop branch")
+        exit_on_failure_command("git checkout -b " + new_feature_branch + " develop")
+        print("Created a release Branch from Develop successfully")
+
         # for module in modules:
         #     os.chdir(FULL_DIR)
         #     moduledetails = module[0].split("/")
