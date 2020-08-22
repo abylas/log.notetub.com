@@ -53,8 +53,8 @@
 
 <!--    <div class = "row buttons">-->
         <a href ="<?php
-        echo CHtml::encode(Yii::app()->createUrl('profilepic/create'));
-        ?>"> Add photo </a>
+        echo CHtml::encode(Yii::app()->createUrl('notespic/create'));
+        ?>"> Add notes photo </a>
 <!--    </div>-->
 <!---->
 

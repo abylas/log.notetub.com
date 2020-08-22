@@ -158,7 +158,6 @@ ALTER TABLE tbl_notespic ADD CONSTRAINT FK_pic_notes  FOREIGN KEY (notes_id)
 		REFERENCES tbl_notes (id) ON DELETE CASCADE ON UPDATE RESTRICT;
 
 
-
 CREATE TABLE `tbl_profilepic` (
 	`id` serial NOT NULL,
 	`name` varchar(255) NOT NULL,

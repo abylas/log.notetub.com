@@ -69,6 +69,7 @@ class NotespicController extends Controller
 		if(isset($_POST['Notespic']))
 		{
 			$model->attributes=$_POST['Notespic'];
+
 			if($model->save())
 				$this->redirect(array("notespic/create"));
 		}
@@ -82,6 +83,36 @@ class NotespicController extends Controller
 			'model'=>$model,
 		));
 	}
+
+
+	public function actionCreator($id)
+    {
+        $notespicModel=new Notespic;
+
+        $notespicModel->notes_id = $id;
+
+        // Uncomment the following line if AJAX validation is needed
+        // $this->performAjaxValidation($model);
+
+        if(isset($_POST['Notespic']))
+        {
+            $notespicModel->attributes=$_POST['Notespic'];
+            if($notespicModel->save())
+                $this->redirect(array("notes/create"));
+        }
+//	 else{
+//		 	// some issue...show error
+//		 	$this->redirect(array('_view'));
+//
+//		 }
+
+        $this->redirect(array("notes/create"));
+
+//        $this->render('create',array(
+//            'model'=>$notespicModel,
+//        ));
+
+    }
 
 	/**
 	 * Updates a particular model.

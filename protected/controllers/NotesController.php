@@ -71,7 +71,8 @@ class NotesController extends Controller
 		{
 			$model->attributes=$_POST['Notes'];
 			if($model->save())
-				$this->redirect(array('create'));
+                $this->redirect(array('notespic/creator', array("id"=>$model->id)));
+//				$this->redirect(array('create'));
 		}
 
 

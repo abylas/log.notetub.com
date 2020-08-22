@@ -3,7 +3,7 @@
 <?php
 Yii::app()->clientScript->registerScriptFile(
     Yii::app()->assetManager->publish(
-        Yii::getPathOfAlias('application.components').'/js/jquery.masonry.min.js'
+        Yii::getPathOfAlias('application.components') . '/js/jquery.masonry.min.js'
     ),
     CClientScript::POS_END
 );
@@ -16,13 +16,13 @@ Yii::app()->clientScript->registerScriptFile(
 
 <script>
 
-    $(document).ready(function() {
+    $(document).ready(function () {
         // alert("Checked");
         //set initial state.
         // $('#hiddenbCB div input').val(this.checked);
 
-        $(':checkbox').change(function() {
-            if(this.checked) {
+        $(':checkbox').change(function () {
+            if (this.checked) {
                 // alert("checked";)
                 // var returnVal = confirm("Are you sure?");
                 // $(this).prop("checked", returnVal);
@@ -33,25 +33,22 @@ Yii::app()->clientScript->registerScriptFile(
                 var tags = $('#Notes_tags').val();
 
 
-                if (tags == null || tags.length==0 || tags == '') {
+                if (tags == null || tags.length == 0 || tags == '') {
                     var newTags = t;
                     $('#Notes_tags').val(newTags);
-                }
-                else {
+                } else {
                     var newTags = tags + ", " + t;
                     $('#Notes_tags').val(newTags);
                 }
 
                 console.log(newTags);
                 //
-            }
-            else
-            {
+            } else {
                 // alert("unchecked");
                 var t = this.labels[0].innerText;
                 var tags = $('#Notes_tags').val();
 
-                $('#Notes_tags').val(tags.replace(', '+ t, ''));
+                $('#Notes_tags').val(tags.replace(', ' + t, ''));
 
 
             }
@@ -94,19 +91,18 @@ Yii::app()->clientScript->registerScriptFile(
 
 
 <?php
-$this->breadcrumbs=array(
-	'Notes'=>array('index'),
-	'Create',
+$this->breadcrumbs = array(
+    'Notes' => array('index'),
+    'Create',
 );
 
-$this->menu=array(
-    array('label'=>'List Notes', 'url'=>array('index')),
-    array('label'=>'Create Notes', 'url'=>array('create')),
-    array('label'=>'Update Notes', 'url'=>array('update', 'id'=>$model->id)),
-    array('label'=>'Delete Notes', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
-    array('label'=>'Manage Notes', 'url'=>array('admin')),
+$this->menu = array(
+    array('label' => 'List Notes', 'url' => array('index')),
+    array('label' => 'Create Notes', 'url' => array('create')),
+    array('label' => 'Update Notes', 'url' => array('update', 'id' => $model->id)),
+    array('label' => 'Delete Notes', 'url' => '#', 'linkOptions' => array('submit' => array('delete', 'id' => $model->id), 'confirm' => 'Are you sure you want to delete this item?')),
+    array('label' => 'Manage Notes', 'url' => array('admin')),
 );
-
 
 
 //$this->menu=array(
@@ -121,14 +117,12 @@ $this->menu=array(
 <!--</button>-->
 
 
-
 <?php
 
 
-$tags=Tag::model()->findTagWeights(500);
+$tags = Tag::model()->findTagWeights(500);
 
-foreach($tags as $tag=>$weight)
-{
+foreach ($tags as $tag => $weight) {
 //    $link=CHtml::link(CHtml::encode($tag), array('notes/index','tag'=>$tag));
 //    echo CHtml::tag('span', array(
 //            'class'=>'tag',
@@ -176,16 +170,15 @@ foreach($tags as $tag=>$weight)
 <div class="hiddenCB">
     <h3>Mark your note </h3>
     <div>
-<?php
+        <?php
 
-$tags=Tag::model()->findTagWeights(500);
-$counter = 0;
-foreach($tags as $tag=>$weight)
-{$counter++;
-    echo "<input type='checkbox' name='choice' id='tag" .$counter. "' onclick=insert()/><label for='tag".$counter."'>";
-echo $tag;
-echo        "</label>";
-
+        $tags = Tag::model()->findTagWeights(500);
+        $counter = 0;
+        foreach ($tags as $tag => $weight) {
+            $counter++;
+            echo "<input type='checkbox' name='choice' id='tag" . $counter . "' onclick=insert()/><label for='tag" . $counter . "'>";
+            echo $tag;
+            echo "</label>";
 
 
 //
@@ -199,18 +192,15 @@ echo        "</label>";
 //            'style'=>"font-size:15pt",
 ////            'style'=>"font-size:{$weight}pt",
 //        ), $link)."\n";
-}
+        }
 
-echo "<br/>\n";
+        echo "<br/>\n";
 
 
-?>
+        ?>
 
     </div>
 </div>
-
-
-
 
 
 <!---->
@@ -226,26 +216,18 @@ echo "<br/>\n";
 <!--</div>-->
 
 
+<?php echo "<br/>\n"; ?>
 
+<?php echo "<br/>\n"; ?>
 
-
-
-
-
-
-
-<?php         echo "<br/>\n"; ?>
-
-<?php         echo "<br/>\n"; ?>
-
-<?php         echo "<br/>\n"; ?>
+<?php echo "<br/>\n"; ?>
 
 <h1>Create Notes</h1>
 
-<?php echo $this->renderPartial('_form', array('model'=>$model)); ?>
+<?php echo $this->renderPartial('_form', array('model' => $model)); ?>
 
 
-<?php if(!empty($_GET['tag'])): ?>
+<?php if (!empty($_GET['tag'])): ?>
     <h1>Notes Tagged with <i><?php echo CHtml::encode($_GET['tag']); ?></i></h1>
 <?php endif; ?>
 
@@ -264,66 +246,66 @@ echo "<br/>\n";
 
     ———————————————————————————————————————-
 
-<!--    --><?php ////$strangerId = $provider->getData()->owner_id;
-//    if($myPage)
-//    { // to only check this if visiting someone else's profile.
-//
-//// if($strangerId===Yii::app()->user->id) // decide whether it's user or some one else's page.
-//// depending on that we will show add friend versus nothing.
-//        { // if already a friend
-//// echo "Already a Friend";
-//        }
-//    }
-//    else{
-//        /**	echo $strangerId;
-//        $exists = Friends::model()->find('user_id=:userID AND friend_id=:fId',
-//        array(':userID'=>Yii::app()->user->id,
-//        ':fId' =>$strangerId, ));
-//        if($exists)
-//        {
-//        echo "Made into friends once";
-//        }
-//        else { // they are not yet friends
-//        echo CHtml::link("Add Friend",
-//        Yii::app()->createUrl('note/new', array("id"=>$strangerId)));
-//        }
-//         */
-//
-//    }
-//    ?>
+    <!--    --><?php ////$strangerId = $provider->getData()->owner_id;
+    //    if($myPage)
+    //    { // to only check this if visiting someone else's profile.
+    //
+    //// if($strangerId===Yii::app()->user->id) // decide whether it's user or some one else's page.
+    //// depending on that we will show add friend versus nothing.
+    //        { // if already a friend
+    //// echo "Already a Friend";
+    //        }
+    //    }
+    //    else{
+    //        /**	echo $strangerId;
+    //        $exists = Friends::model()->find('user_id=:userID AND friend_id=:fId',
+    //        array(':userID'=>Yii::app()->user->id,
+    //        ':fId' =>$strangerId, ));
+    //        if($exists)
+    //        {
+    //        echo "Made into friends once";
+    //        }
+    //        else { // they are not yet friends
+    //        echo CHtml::link("Add Friend",
+    //        Yii::app()->createUrl('note/new', array("id"=>$strangerId)));
+    //        }
+    //         */
+    //
+    //    }
+    //    ?>
 
 
-    <?php foreach($dataProvider->getData() as $note): ?>
+    <?php foreach ($dataProvider->getData() as $note): ?>
         <div class="note">
             <?php
-//            $model = Profilepic::model()->find('user_id=:userID', array(':userID'=>$note->owner_id));
+            //            $model = Profilepic::model()->find('user_id=:userID', array(':userID'=>$note->owner_id));
 
-//            $user= User::model()->find('id=:uID', array(":uID" =>$note->owner_id));
+            //            $user= User::model()->find('id=:uID', array(":uID" =>$note->owner_id));
 
             // used to reflect whether there is an image related to this note or not.
-            $bitImageExists= false;
+            $bitImageExists = false;
             // first bit image id in a note...this will be used to show the image on front page.
-//            $bitImageId;
-//
-//            $imgPath;
+            //            $bitImageId;
+            //
+            //            $imgPath;
 
-//            foreach($note->bits as $i=>$bit){
-//                // now check if any of these bits id exist in image table...if it does
-//
-//                $bitId = $bit->id;
-//                $image = Image::model()->find('bit_id=:bitId', array(":bitId"=>$bitId));
-//
-//                $keepLooking = true;
-//
-//                if($image !== null && $keepLooking == true){
-//                    $bitImageExists = true;
-//
-//                    $bitImageId = $bitId;
-//
-//                    $imgPath = Yii::app()->image->getURL($image->id, "small");
-//                }
-//                // otherwise we have found the needed information...let's get out.
-//            }
+            //            foreach($note->bits as $i=>$bit){
+            //                // now check if any of these bits id exist in image table...if it does
+            //
+            //                $bitId = $bit->id;
+            //                $image = Image::model()->find('bit_id=:bitId', array(":bitId"=>$bitId));
+            //
+            //                $keepLooking = true;
+            //
+            //                if($image !== null && $keepLooking == true){
+            //                    $bitImageExists = true;
+            //
+            //                    $bitImageId = $bitId;
+            //
+            //                    $imgPath = Yii::app()->image->getURL($image->id, "small");
+            //                }
+            //                // otherwise we have found the needed information...let's get out.
+            //            }
 
             // now use this id to display a different view with photo in it.
 
@@ -342,7 +324,7 @@ echo "<br/>\n";
                 //{
                 ?>
                 <div class="imgtitle">
-                    <?php  echo $note->name; ?>
+                    <?php echo $note->name; ?>
                 </div>
                 <?php
                 // use the image path found earlier.
@@ -354,7 +336,7 @@ echo "<br/>\n";
                 </div>
 
                 <div class="numOfBits">
-                    <?php  //echo $note->bitCount; ?>
+                    <?php //echo $note->bitCount; ?>
                 </div>
 
                 <?php
@@ -366,28 +348,28 @@ echo "<br/>\n";
                 // image_4 = green
 
 
-                $post_num =  mt_rand(1,4);// $note->status;
+                $post_num = mt_rand(1, 4);// $note->status;
                 // mt_rand(1,4);
-                $imgPath = "images/note_big_mobile_".$post_num.".png";
+                $imgPath = "images/note_big_mobile_" . $post_num . ".png";
                 //}
                 ?>
 
-<!--                <a href="	--><?php // echo CHtml::encode($note->url);?>
-<!--										"-->
-<!--                   title="--><?php //echo $note->name;?><!-- ">-->
-<!---->
-<!--                    --><?php //echo CHtml::tag("img", array(
-//                        "src"=>$imgPath,
-//                    ));
-//
-//                    ?><!-- </a>-->
+                <!--                <a href="	--><?php // echo CHtml::encode($note->url);?>
+                <!--										"-->
+                <!--                   title="--><?php //echo $note->name;?><!-- ">-->
+                <!---->
+                <!--                    --><?php //echo CHtml::tag("img", array(
+                //                        "src"=>$imgPath,
+                //                    ));
+                //
+                //                    ?><!-- </a>-->
             </div> <!-- noteprofilesmallpic end -->
 
             <br>
             <div class="status">
                 <?php
 
-                $show= "";
+                $show = "";
 
                 //		echo CHtml::encode(Lookup::item('NoteStatus',$note->status) . $show); ?>
             </div>
@@ -396,11 +378,11 @@ echo "<br/>\n";
                 <?php
 
 
-//                echo date('M j',$note->create_time);
-//                echo " at ";
-//                echo date('H:i a',$note->create_time);
-//
-//                echo "   &nbsp; &nbsp;&nbsp;&nbsp; ";
+                //                echo date('M j',$note->create_time);
+                //                echo " at ";
+                //                echo date('H:i a',$note->create_time);
+                //
+                //                echo "   &nbsp; &nbsp;&nbsp;&nbsp; ";
 
                 echo "<br/>\n";
                 echo "<br/>\n";
@@ -410,18 +392,18 @@ echo "<br/>\n";
                 echo "<br/>\n";
                 echo "<br/>\n";
 
-?>
+                ?>
 
                 <b>Tags:</b>
-         <?php echo implode(', ', $note->tagLinks);
+                <?php echo implode(', ', $note->tagLinks);
 
-        echo "<br/>\n";
+                echo "<br/>\n";
 
-        ?>
-        <br/>
+                ?>
+                <br/>
 
 
-        <?php echo CHtml::link('Permalink', $note->url);
+                <?php echo CHtml::link('Permalink', $note->url);
 
                 echo "---------------------------------";
 
@@ -434,7 +416,6 @@ echo "<br/>\n";
             <!-- end of post time -->
 
             <div id="deleteNote">
-
 
 
                 <?php
