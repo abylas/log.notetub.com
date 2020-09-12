@@ -33,14 +33,14 @@
 
         <?php
         $image_id=null;
-        if($notespicmodel!= null)
-        {// update
-            $img = $notespicmodel->path .'/'. $notespicmodel->name.'.'.$notespicmodel->extension;
-            $image_id=$notespicmodel->id;
-        }
-        else {				// create
+//        if($notespicmodel!= null)
+//        {// update
+//            $img = $notespicmodel->path .'/'. $notespicmodel->name.'.'.$notespicmodel->extension;
+//            $image_id=$notespicmodel->id;
+//        }
+//        else {				// create
             $img = "images/fish_2.jpg";  //"files/images/profilePic/default/def.png";
-        }
+//        }
         ?>
 
         <a href ="	<?php  if($image_id!=null){
