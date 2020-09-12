@@ -70,6 +70,10 @@ class NotesController extends Controller
 		if(isset($_POST['Notes']))
 		{
 			$model->attributes=$_POST['Notes'];
+
+
+			$model->source = Yii::app()->name;
+
 			if($model->save())
 				$this->redirect(array('create'));
 		}
@@ -84,6 +88,8 @@ class NotesController extends Controller
         ));
         if(isset($_GET['tag']))
             $criteria->addSearchCondition('tags',$_GET['tag']);
+            $criteria->addSearchCondition('source',Yii::app()->name);
+
 
         $dataProvider=new CActiveDataProvider('Notes', array(
             'pagination'=>array(
@@ -194,6 +200,7 @@ class NotesController extends Controller
             'order'=>'update_time DESC',
 //            'with'=>'commentCount',
         ));
+
         if(isset($_GET['tag']))
             $criteria->addSearchCondition('tags',$_GET['tag']);
 

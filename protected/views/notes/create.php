@@ -1,5 +1,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+
+
+
 <?php
 Yii::app()->clientScript->registerScriptFile(
     Yii::app()->assetManager->publish(
@@ -93,6 +96,7 @@ Yii::app()->clientScript->registerScriptFile(
 </script>
 
 
+
 <?php
 $this->breadcrumbs=array(
 	'Notes'=>array('index'),
@@ -106,6 +110,11 @@ $this->menu=array(
     array('label'=>'Delete Notes', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
     array('label'=>'Manage Notes', 'url'=>array('admin')),
 );
+
+
+
+
+
 
 
 

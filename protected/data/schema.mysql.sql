@@ -33,6 +33,7 @@ CREATE TABLE tbl_notes
     name TEXT,
     status TEXT,
     tags TEXT,
+    source TEXT,
     create_time DATETIME,
     update_time DATETIME
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

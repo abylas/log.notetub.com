@@ -20,5 +20,16 @@ return array(
 			'charset' => 'utf8',
 		),
 		*/
-	),
+
+        /*production-settings*/
+        'db'=>array(
+            'connectionString' => 'mysql:host=localhost;dbname=notetubc_dns',
+            'emulatePrepare' => true,
+            'username' => 'notetubc_root',
+            'password' => 'root1',
+            'charset' => 'utf8',
+            'tablePrefix' => 'tbl_',
+        ),
+
+    ),
 );

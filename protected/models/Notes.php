@@ -7,6 +7,8 @@
  * @property integer $id
  * @property string $name
  * @property string $status
+ * @property string $tags
+ * @property string $source
  * @property string $create_time
  * @property string $update_time
  */
@@ -65,11 +67,12 @@ class Notes extends CActiveRecord
             array('name', 'safe'),
             array('tags', 'match', 'pattern'=>'/^[\w\s,]+$/', 'message'=>'Tags can only contain word characters.'),
             array('tags', 'normalizeTags'),
+            array('source', 'safe'),
 
             //			array('name, status, create_time, update_time', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, name, status, create_time, update_time', 'safe', 'on'=>'search'),
+			array('id, name, status, source, create_time, update_time', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -96,6 +99,7 @@ class Notes extends CActiveRecord
 			'name' => 'Name',
             'tags' => 'Tags you have selected',
 			'status' => 'Status',
+			'source' => 'Source App',
 			'create_time' => 'Create Time',
 			'update_time' => 'Update Time',
 		);
